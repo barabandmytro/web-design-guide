@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Вступ до веб-дизайну",
+    "description": "Основні поняття веб-дизайну, структура сайту, роль дизайнера.",
+    "presentation": "https://example.com/presentations/lesson1.pdf"
+  },
+  {
+    "id": 2,
+    "title": "HTML: структура веб-сторінки",
+    "description": "Базові теги HTML, створення простої сторінки.",
+    "presentation": "https://example.com/presentations/lesson2.pdf"
+  },
+  {
+    "id": 3,
+    "title": "CSS: стилізація сайту",
+    "description": "Поняття каскадних стилів, приклади оформлення сторінок.",
+    "presentation": "https://example.com/presentations/lesson3.pdf"
+  }
+]
