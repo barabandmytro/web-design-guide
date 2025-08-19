@@ -1,6 +1,20 @@
 const lessons = [
   {
     id: 1,
+    slug: 'avtomatyzovane-stvorennia-y-idtrymka-veb-resursiv',
+    sections: [
+      {
+        heading: 'Вступ',
+        text: 'Ось презентація уроку:',
+        presentation: {
+          type: 'pdf',
+          src: 'https://drive.google.com/file/d/1Xu4mDZtuafnEhEfi6YfMATk8GZVjm9F7/view',
+        },
+      },
+    ],
+  },
+  {
+    id: 2,
     slug: 'vstup-do-veb-dizajnu',
     title: 'Вступ до веб-дизайну',
     subtitle: 'Що таке веб-дизайн та його принципи',
@@ -27,7 +41,7 @@ const lessons = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     slug: 'html-struktura-veb-storinky',
     title: 'HTML: структура веб-сторінки',
     subtitle: 'Базові теги та створення першої сторінки',
@@ -51,7 +65,7 @@ const lessons = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     slug: 'css-stylizaciya-sajtu',
     title: 'CSS: стилізація сайту',
     subtitle: 'Оформлення сторінок за допомогою стилів',

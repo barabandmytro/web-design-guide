@@ -2,12 +2,14 @@ import { Link, useParams } from 'react-router-dom';
 import lessonsMeta from 'data/lessonsMeta.json';
 import lessonsContent from 'data/lessonsContent';
 import Button from 'components/UI/Button';
+import Presentation from 'components/Presentation';
+
 import './LessonPage.scss';
 
 function LessonPage() {
   const { slug } = useParams();
 
-  // знаходимо урок одразу з обох джерел
+  // шукаємо мета та контент
   const meta = lessonsMeta.find((l) => l.slug === slug);
   const content = lessonsContent.find((l) => l.slug === slug);
 
@@ -26,7 +28,7 @@ function LessonPage() {
 
       {content?.sections?.map((section, i) => (
         <div key={i} className="lesson-section">
-          <h2>{section.heading}</h2>
+          {section.heading && <h2>{section.heading}</h2>}
 
           {section.text && <p>{section.text}</p>}
 
@@ -43,6 +45,9 @@ function LessonPage() {
               <code>{section.code}</code>
             </pre>
           )}
+
+          {/* 👉 презентація (pdf) */}
+          {section.presentation && <Presentation src={section.presentation.src} />}
         </div>
       ))}
 
