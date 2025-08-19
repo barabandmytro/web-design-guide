@@ -1,24 +1,25 @@
-import React from "react";
-import Header from "components/Header";
-import LessonsList from "components/LessonsList";
-import "./App.scss";
+import { Routes, Route } from "react-router-dom";
+import LessonsList from "../LessonsList";
+import LessonPage from "../LessonPage";
+import Header from "../Header";
+import Container from "../UI/Container";
+import Footer from "../Footer"; // 👈 додав
 
-const App = () => {
+function App() {
   return (
-    <div className="app-container">
+    <div className="app">
       <Header />
-      <main className="main">
-        <section className="hero">
-          <h2>Вітаю у Web Design Guide 🚀</h2>
-          <p>
-            Тут ти знайдеш усі уроки по верстці та сучасному веб-дизайну.
-            Почнемо навчання прямо зараз!
-          </p>
-        </section>
-        <LessonsList />
+      <main>
+        <Container>
+          <Routes>
+            <Route path="/" element={<LessonsList />} />
+            <Route path="/lesson/:slug" element={<LessonPage />} />
+          </Routes>
+        </Container>
       </main>
+      <Footer />
     </div>
   );
-};
+}
 
 export default App;

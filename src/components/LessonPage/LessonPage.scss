@@ -1,0 +1,44 @@
+.lesson-page {
+  max-width: 960px; // обмежуємо ширину сторінки
+  margin: 0 auto;   // центруємо
+  padding: 0 16px;  // невеликі відступи від країв
+
+  h1 {
+    font-size: 2rem;
+    color: #1a3e8a;
+    margin-bottom: 12px;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #444;
+  }
+
+  &__image {
+    img {
+    max-width: 600px; // не більше 600px
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .presentation {
+    position: relative;
+    padding-top: 56.25%; // 16:9
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

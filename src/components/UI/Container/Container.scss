@@ -1,0 +1,8 @@
+// src/components/UI/Container.scss
+.container {
+  width: 100%;
+  max-width: 1200px; // або 960px, залежно від дизайну
+  margin: 0 auto; // центрує по горизонталі
+  padding: 0 16px; // відступи щоб текст не лип до краю
+  box-sizing: border-box;
+}

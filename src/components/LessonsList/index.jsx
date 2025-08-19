@@ -1,17 +1,18 @@
-import lessons from "data/lessons.json";
 import LessonCard from "components/LessonCard";
+import lessons from "data/lessons.json";
 import "./LessonsList.scss";
 
-export default function LessonsList() {
+const LessonsList = () => {
   return (
-    <div className="lessons-list">
+    <div className="lessons-grid">
       {lessons.map((lesson) => (
         <LessonCard
           key={lesson.id}
-          title={lesson.title}
-          description={lesson.description}
+          lesson={lesson}
         />
       ))}
     </div>
   );
-}
+};
+
+export default LessonsList;

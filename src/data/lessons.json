@@ -3,18 +3,21 @@
     "id": 1,
     "title": "Вступ до веб-дизайну",
     "description": "Основні поняття веб-дизайну, структура сайту, роль дизайнера.",
-    "presentation": "https://example.com/presentations/lesson1.pdf"
+    "image": "/images/intro.png",
+    "slug": "vstup-do-veb-dizajnu"
   },
   {
     "id": 2,
     "title": "HTML: структура веб-сторінки",
     "description": "Базові теги HTML, створення простої сторінки.",
-    "presentation": "https://example.com/presentations/lesson2.pdf"
+    "image": "/images/html.png",
+    "slug": "html-struktura-veb-storinky"
   },
   {
     "id": 3,
     "title": "CSS: стилізація сайту",
     "description": "Поняття каскадних стилів, приклади оформлення сторінок.",
-    "presentation": "https://example.com/presentations/lesson3.pdf"
+    "image": "/images/css.png",
+    "slug": "css-stylizaciya-sajtu"
   }
 ]
