@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "preview": "vite preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "path": "^0.12.7",
@@ -22,9 +23,20 @@
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "eslint": "^9.33.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
     "vite": "^7.1.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,css,scss}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
