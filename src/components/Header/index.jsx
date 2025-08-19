@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Header.scss';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
+  // керуємо body scroll lock
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }, [open]);
 
   return (
     <header className="site-header">
@@ -29,20 +38,21 @@ export default function Header() {
           aria-label="Toggle navigation"
           onClick={() => setOpen(!open)}
         >
-          <div className="icon-wrapper">
+          <span className="icon-wrapper">
             <img
               src="/images/burger-menu/menu.svg"
-              alt="Відкрити меню"
+              alt="menu"
               className={`icon ${open ? 'hidden' : 'visible'}`}
             />
             <img
               src="/images/burger-menu/close.svg"
-              alt="Закрити меню"
+              alt="close"
               className={`icon ${open ? 'visible' : 'hidden'}`}
             />
-          </div>
+          </span>
         </button>
       </div>
+      {open && <div className="overlay" onClick={() => setOpen(false)} />}
     </header>
   );
 }
