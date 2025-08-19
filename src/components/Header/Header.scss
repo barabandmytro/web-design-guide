@@ -1,18 +1,24 @@
-.site-header {
-  background: #1a3e8a;
+/* Підтримуємо і .site-header, і .header */
+.site-header, .header {
+  background: #2563eb;
   color: #fff;
-  padding: 12px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
   .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
+    color: #fff;
   }
 
   .nav {
@@ -22,60 +28,56 @@
     a {
       color: #fff;
       font-weight: 500;
-      transition: opacity 0.2s ease;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-
-    @media (max-width: 768px) {
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: #1a3e8a;
-      flex-direction: column;
-      gap: 12px;
-      padding: 16px;
-      display: none;
-
-      &.open {
-        display: flex;
-      }
+      transition: color 0.2s;
+      &:hover { color: #cbd5e1; }
     }
   }
 
   .burger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
     width: 24px;
-    height: 20px;
+    height: 18px;
     background: none;
-    border: none;
+    border: 0;
     cursor: pointer;
+    z-index: 1100;
 
     span {
-      display: block;
       height: 3px;
       background: #fff;
       border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    &.active span:nth-child(1) {
-      transform: rotate(45deg) translateY(8px);
-    }
-    &.active span:nth-child(2) {
-      opacity: 0;
-    }
-    &.active span:nth-child(3) {
-      transform: rotate(-45deg) translateY(-8px);
-    }
-
-    @media (max-width: 768px) {
-      display: flex;
+      transition: transform .25s, opacity .25s;
     }
   }
 }
+
+/* Мобільна версія */
+@media (max-width: 768px) {
+  .site-header, .header {
+    .nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 260px;
+      height: 100vh;
+      background: #1e3a8a;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 64px 20px;
+      gap: 16px;
+      transition: right .3s ease;
+
+      a { color: #fff; }
+    }
+
+    .nav.open { right: 0; }
+    .burger { display: flex; }
+  }
+}
+
+/* Анімація бургер-іконки */
+.burger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }

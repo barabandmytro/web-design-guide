@@ -1,39 +1,29 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import Container from "../UI/Container";
+import { useState } from "react";
 import "./Header.scss";
 
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleLinkClick = () => {
-    setMenuOpen(false);
-  };
+export default function Header() {
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="site-header">
-      <Container>
-        <div className="header-inner">
-          <div className="logo">WebDesign Guide</div>
+      <div className="header-inner">
+        <Link to="/" className="logo">WebDesign Guide</Link>
 
-          <button
-            className={`burger ${menuOpen ? "active" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+        <nav className={`nav ${open ? "open" : ""}`}>
+          <Link to="/" onClick={() => setOpen(false)}>Головна</Link>
+          <Link to="/about" onClick={() => setOpen(false)}>Про курс</Link>
+          <Link to="/contacts" onClick={() => setOpen(false)}>Контакти</Link>
+        </nav>
 
-          <nav className={`nav ${menuOpen ? "open" : ""}`}>
-            <Link to="/" onClick={handleLinkClick}>Головна</Link>
-            <Link to="/about" onClick={handleLinkClick}>Про курс</Link>
-            <Link to="/contacts" onClick={handleLinkClick}>Контакти</Link>
-          </nav>
-        </div>
-      </Container>
+        <button
+          className={`burger ${open ? "active" : ""}`}
+          aria-label="Toggle navigation"
+          onClick={() => setOpen(!open)}
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </header>
   );
-};
-
-export default Header;
+}
