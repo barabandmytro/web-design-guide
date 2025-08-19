@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "preview": "vite preview",
-    "prepare": "husky"
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "path": "^0.12.7",
