@@ -1,8 +1,9 @@
-// src/components/UI/Container.scss
-.container {
-  width: 100%;
-  max-width: 1200px; // або 960px, залежно від дизайну
-  margin: 0 auto; // центрує по горизонталі
-  padding: 0 16px; // відступи щоб текст не лип до краю
-  box-sizing: border-box;
+.ui-container {
+  max-width: 1200px; // або скільки тобі треба
+  margin: 0 auto; // центрування
+
+  // щоб блоки не злипались
+  > * + * {
+    margin-top: 1.5rem;
+  }
 }

@@ -1,15 +1,12 @@
-import LessonCard from "components/LessonCard";
-import lessons from "data/lessons.json";
-import "./LessonsList.scss";
+import LessonCard from 'components/LessonCard';
+import { lessonsMeta } from 'data';
+import './LessonsList.scss';
 
 const LessonsList = () => {
   return (
     <div className="lessons-grid">
-      {lessons.map((lesson) => (
-        <LessonCard
-          key={lesson.id}
-          lesson={lesson}
-        />
+      {lessonsMeta.map((lesson) => (
+        <LessonCard key={lesson.id} lesson={lesson} />
       ))}
     </div>
   );

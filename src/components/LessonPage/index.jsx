@@ -1,46 +1,80 @@
-// src/components/LessonPage.jsx
-import { useParams, Link } from "react-router-dom";
-import lessons from "../../data/lessons.json"; // твій JSON
-import Container from "../UI/Container";
-import Button from "../UI/Button";
-import "./LessonPage.scss";
+import { Link, useParams } from 'react-router-dom';
+import lessonsMeta from 'data/lessonsMeta.json';
+import lessonsContent from 'data/lessonsContent';
+import Button from 'components/UI/Button';
+import './LessonPage.scss';
 
 function LessonPage() {
   const { slug } = useParams();
-  const lesson = lessons.find((l) => l.slug === slug);
 
-  if (!lesson) {
-    return (
-      <Container>
-        <h2>Урок не знайдено</h2>
-        <Link to="/">
-          <Button variant="secondary">Повернутися</Button>
-        </Link>
-      </Container>
-    );
+  // знаходимо урок одразу з обох джерел
+  const meta = lessonsMeta.find((l) => l.slug === slug);
+  const content = lessonsContent.find((l) => l.slug === slug);
+
+  if (!meta) {
+    return <p>Урок не знайдено 😢</p>;
   }
 
-  const fallbackImage = "/images/fallback.svg";
+  const currentIndex = lessonsMeta.findIndex((l) => l.slug === slug);
+  const prevLesson = lessonsMeta[currentIndex - 1];
+  const nextLesson = lessonsMeta[currentIndex + 1];
 
   return (
-    <Container>
-      <div className="lesson-page">
-        <h1>{lesson.title}</h1>
-        <div className="lesson-page__image">
-          <img src={lesson.image || fallbackImage} alt={lesson.title} />
-        </div>
-        <p className="lesson-page__description">{lesson.description}</p>
+    <div className="lesson-page">
+      <h1>{meta.title}</h1>
+      <p className="subtitle">{meta.description}</p>
 
-        {/* Пізніше тут можна буде додати iframe з презентацією */}
-        <div className="lesson-page__content">
-          <p>Тут буде контент уроку (презентація, відео, текст).</p>
-        </div>
+      {content?.sections?.map((section, i) => (
+        <div key={i} className="lesson-section">
+          <h2>{section.heading}</h2>
 
-        <Link to="/">
-          <Button variant="primary">⬅ Назад до уроків</Button>
-        </Link>
+          {section.text && <p>{section.text}</p>}
+
+          {section.list && (
+            <ul>
+              {section.list.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          )}
+
+          {section.code && (
+            <pre>
+              <code>{section.code}</code>
+            </pre>
+          )}
+        </div>
+      ))}
+
+      {content?.callouts?.map((callout, i) => (
+        <div key={i} className={`callout ${callout.type}`}>
+          {callout.text}
+        </div>
+      ))}
+
+      {/* 👉 Навігація */}
+      <div className="lesson-navigation">
+        {prevLesson ? (
+          <Button as={Link} variant="secondary" to={`/lesson/${prevLesson.slug}`}>
+            ← {prevLesson.title}
+          </Button>
+        ) : (
+          <div />
+        )}
+
+        <Button as={Link} variant="primary" to="/">
+          ⬅ Назад до списку
+        </Button>
+
+        {nextLesson ? (
+          <Button as={Link} variant="secondary" to={`/lesson/${nextLesson.slug}`}>
+            {nextLesson.title} →
+          </Button>
+        ) : (
+          <div />
+        )}
       </div>
-    </Container>
+    </div>
   );
 }
 

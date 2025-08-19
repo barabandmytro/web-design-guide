@@ -1,19 +1,16 @@
-import React from "react";
-import "./Button.scss";
+import React from 'react';
+import './Button.scss';
 
-function Button({ children, variant = "primary", full = false, ...props }) {
-  const classes = [
-    "ui-button",
-    `ui-button--${variant}`,
-    full ? "ui-button--full" : "",
-  ]
+function Button({ children, as = 'button', variant = 'primary', full = false, ...props }) {
+  const Component = as;
+  const classes = ['ui-button', `ui-button--${variant}`, full ? 'ui-button--full' : '']
     .filter(Boolean)
-    .join(" ");
+    .join(' ');
 
   return (
-    <button className={classes} {...props}>
+    <Component className={classes} {...props}>
       {children}
-    </button>
+    </Component>
   );
 }
 

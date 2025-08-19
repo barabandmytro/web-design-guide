@@ -1,44 +1,71 @@
 .lesson-page {
-  max-width: 960px; // обмежуємо ширину сторінки
-  margin: 0 auto;   // центруємо
-  padding: 0 16px;  // невеликі відступи від країв
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 
   h1 {
-    font-size: 2rem;
-    color: #1a3e8a;
-    margin-bottom: 12px;
+    margin-bottom: 0.5em;
   }
 
-  .description {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #444;
+  .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
   }
 
-  &__image {
-    img {
-    max-width: 600px; // не більше 600px
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .lesson-section {
+    margin-bottom: 2rem;
+
+    h2 {
+      margin-bottom: 0.5rem;
+      color: #0066cc;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
     }
   }
 
-  .presentation {
-    position: relative;
-    padding-top: 56.25%; // 16:9
+  .callout {
+    padding: 1rem;
+    border-left: 4px solid;
+    border-radius: 4px;
+    margin: 1.5rem 0;
 
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
+    &.warning {
+      background: #fff4e5;
+      border-color: #ff9800;
+    }
+  }
+}
+
+.lesson-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .ui-button {
+    min-width: 180px;
+    text-align: center;
+  }
+
+  > div {
+    flex: 1;
+  }
+
+  /* 📱 Мобільна адаптація */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    .ui-button {
       width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
   }
 }

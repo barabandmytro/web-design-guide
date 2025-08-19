@@ -1,9 +1,9 @@
-import { Routes, Route } from "react-router-dom";
-import LessonsList from "../LessonsList";
-import LessonPage from "../LessonPage";
-import Header from "../Header";
-import Container from "../UI/Container";
-import Footer from "../Footer"; // 👈 додав
+import { Routes, Route } from 'react-router-dom';
+import LessonsList from '../LessonsList';
+import LessonPage from '../LessonPage';
+import Header from '../Header';
+import Container from '../UI/Container';
+import Footer from '../Footer';
 
 function App() {
   return (

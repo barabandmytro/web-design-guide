@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import Card from "../UI/Card";
-import Button from "../UI/Button";
-import "./LessonCard.scss";
+import { Link } from 'react-router-dom';
+import Card from '../UI/Card';
+import Button from '../UI/Button';
+import './LessonCard.scss';
 
 function LessonCard({ lesson }) {
-  const fallbackImage = "/images/fallback.svg";
+  const fallbackImage = '/images/fallback.svg';
 
   return (
     <Card className="lesson-card">
